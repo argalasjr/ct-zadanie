@@ -1,1 +1,6 @@
 <p>profile-form works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <input placeholder="meno" type="text" formControlName="username" />
+  <input placeholder="heslo" type="text" formControlName="password" />
+  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+</form>

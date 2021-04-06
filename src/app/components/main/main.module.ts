@@ -5,6 +5,9 @@ import { UserProfileModule } from '../user-profile/user-profile.module';
 import { SubmittedDataModule } from '../submitted-data/submitted-data.module';
 import { ProfileFormModule } from '../profile-form/profile-form.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginModule } from '../login/login.module';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 
 
@@ -13,9 +16,15 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     SubmittedDataModule,
     ProfileFormModule,
-    UserProfileModule
+    UserProfileModule,
+    LoginModule
+  ],
+  providers: [
+    AuthGuard
   ],
   exports: [
     MainComponent

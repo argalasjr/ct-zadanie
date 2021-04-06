@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 42px;
+  border: none;
+  line-height: 40px;
+  border-bottom: solid 1px black;
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  margin-top: 20px;
+}
