@@ -10,7 +10,7 @@ import { DataService } from 'src/app/core/services/data.service';
 export class SubmittedDataComponent implements OnInit {
 
   public submittedDataForm!: any;
-
+  public dataSub: any;
   constructor(private dataService: DataService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class SubmittedDataComponent implements OnInit {
         this.submittedDataForm = result;
         this.cd.markForCheck();
       }
-    )
+    );
   }
 
 }

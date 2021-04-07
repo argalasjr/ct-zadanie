@@ -11,15 +11,15 @@ const routes: Routes = [];
 @NgModule({
   imports: [
     MainModule,
-    RouterModule.forRoot([    
+    RouterModule.forRoot([
       {
         path: '',
         children: [
           {
             path: 'login',
             component: LoginComponent
-            //for lazy load
-            //loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
+            // for lazy load
+            // loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
           },
           {
             path: '',
@@ -35,7 +35,7 @@ const routes: Routes = [];
             canActivate: [AuthGuard]
           },
         ]
-      },     
+      },
     ])],
   exports: [RouterModule]
 })

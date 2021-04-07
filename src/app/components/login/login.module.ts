@@ -13,8 +13,7 @@ import { MainModule } from '../main/main.module';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-   
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent

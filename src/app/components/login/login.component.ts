@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   public isLoggedIn!: boolean;
   public loginForm: FormGroup;
-  constructor(private router: Router,private auth: AuthService) { }
-
+  constructor(private router: Router, private auth: AuthService) { }
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(5)]),

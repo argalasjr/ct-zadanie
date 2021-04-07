@@ -15,7 +15,9 @@ import { RestInterceptor } from './core/interceptors/rest.interceptor';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ {provide: HTTP_INTERCEPTORS, useClass: RestInterceptor, multi: true},],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

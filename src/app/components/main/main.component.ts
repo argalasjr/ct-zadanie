@@ -7,11 +7,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainComponent implements OnInit {
+export class MainComponent  {
 
-  constructor(public auth: AuthService) { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public auth: AuthService) {}
 }

@@ -22,7 +22,6 @@ export class RestInterceptor implements HttpInterceptor {
     return next.handle(request)
       .pipe(
         catchError((error: HttpErrorResponse) => {
-          console.log('interceptor zachytil errorik',error)
           return throwError(error);
         })
       );

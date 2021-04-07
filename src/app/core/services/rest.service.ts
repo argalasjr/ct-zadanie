@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, of, throwError } from "rxjs";
-import { tap, catchError } from "rxjs/operators";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,12 @@ export class RestService {
 
   submitForm(formBody: any): Observable<any> {
     const url = `${this.BASE_URL}/post`;
-    return this.http.post<any>(url,formBody)
+    return this.http.post<any>(url, formBody);
   }
 
   getFoo(foo: string): Observable<any> {
     const url = `${this.BASE_URL}/get`;
-    return this.http.get<any>(url,{params: {foo}})
+    return this.http.get<any>(url, { params: { foo } });
   }
 
 }
