@@ -1,8 +1,8 @@
 :host {
   display: block;
   text-align: center;
-  box-sizing: border-box;
   border: solid 1px black;
+  border-radius: 8px;
 }
 
 input {
@@ -13,7 +13,6 @@ input {
   width: 200px;
   height: 42px;
   border: none;
-  line-height: 40px;
   border-bottom: solid 1px black;
   &:focus {
     outline: none;
@@ -23,11 +22,18 @@ input {
   }
 }
 
+::placeholder {
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: -0.18px;
+}
+
 button {
   display: block;
   width: 100px;
   height: 40px;
   margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;

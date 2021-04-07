@@ -46,6 +46,7 @@ export class ProfileFormComponent implements OnInit {
   public resetForm(): void {
     this.submitted = false;
     this.dataService.changeSubmittedData(undefined);
+    this.profileForm.reset()
   }
 
   public checkValidation(controlName: string): boolean {

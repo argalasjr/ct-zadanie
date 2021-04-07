@@ -1,6 +1,6 @@
 <h1>Login</h1>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <input placeholder="meno" type="text" formControlName="username" />
-  <input placeholder="heslo" type="text" formControlName="password" />
+  <input placeholder="username" type="text" formControlName="username" />
+  <input placeholder="password" type="text" formControlName="password" />
   <button type="submit" [disabled]="loginForm.invalid">Submit</button>
 </form>
