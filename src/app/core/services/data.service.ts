@@ -6,12 +6,14 @@ import { BehaviorSubject } from "rxjs";
 })
 export class DataService {
 
-  private readonly _submittedDataSource = new BehaviorSubject<any>(undefined);
-  public submittedData = this._submittedDataSource.asObservable()
+  private readonly _submittedDataFormSource = new BehaviorSubject<any>(undefined);
+  public submittedData = this._submittedDataFormSource.asObservable()
+
+
   
   constructor() { }
   
   public changeSubmittedData(data: any): void {
-    this._submittedDataSource.next(data);
+    this._submittedDataFormSource.next(data);
   }
 }

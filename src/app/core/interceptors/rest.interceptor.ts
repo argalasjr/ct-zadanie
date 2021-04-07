@@ -13,12 +13,18 @@ import { catchError, take } from 'rxjs/operators';
 export class RestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-
-    return next.handle(request)
-      .pipe(
-        catchError((error: HttpErrorResponse) => {
-          return throwError(error);
-        })
-      );
+    request = request.clone({
+      setHeaders: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        'Content-Type': 'application/json'
+      }
+    });
+    return next.handle(request);
+      // .pipe(
+      //   catchError((error: HttpErrorResponse) => {
+      //     console.log('interceptor zachytil errorik',err)
+      //     return throwError(error);
+      //   })
+      // );
   }
 }

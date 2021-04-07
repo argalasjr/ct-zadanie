@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { BehaviorSubject, Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 
 @Injectable({
@@ -9,8 +9,15 @@ import { tap, catchError } from "rxjs/operators";
 export class RestService {
 
   private readonly BASE_URL = 'https://postman-echo.com';
-
-
+  private readonly _getFooResultSource = new BehaviorSubject<any>('Loading..');
+  public currentFooStatus = this._getFooResultSource.asObservable()
+  public changeCurrentFooStatus(data: any): void {
+    this._getFooResultSource.next(data);
+    if (data === "Loaded" || data === "Error"){
+      this._getFooResultSource.complete()
+    }
+    
+  }
 
   private httpOptions =  {  
     headers: new HttpHeaders({
@@ -33,14 +40,13 @@ export class RestService {
   }
 
   getFoo(foo: string): Observable<any> {
-    this.httpOptions.params = new HttpParams()
-    //this.httpOptions.params.append('foo', fooValue);
-    console.log(this.httpOptions)
     const url = `${this.BASE_URL}/get`;
     return this.http.get<any>(url,{params: {foo}})
       .pipe(
         tap(_ => console.log('fetched postman echo foo ',foo)),
-        catchError(this.handleError<any>('getFoo', null))
+        catchError((err) => { 
+          this.changeCurrentFooStatus('Error')
+          return throwError(err)})
       );
   }
 
