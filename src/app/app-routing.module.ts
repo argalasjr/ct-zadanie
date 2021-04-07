@@ -33,8 +33,12 @@ const routes: Routes = [];
             //loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
           },
           {
+            //TODO: only if user is logged
             path: '**',
-            component: MainComponent
+            redirectTo: '',
+            component: MainComponent,
+            data: {requiresLogin: true},
+            canActivate: [AuthGuard]
           },
         ]
       },

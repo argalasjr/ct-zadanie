@@ -7,19 +7,30 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
+  public submitted!: boolean;
   public profileForm: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
     this.profileForm = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      phone: new FormControl(null),
     });
   }
   public onSubmit(): void {
-    // this.isLoggedIn = true;
-    // localStorage.setItem('login', JSON.stringify(this.isLoggedIn));
-    //this.router.navigate(['/']);
+    this.submitted = true
+    console.log(this.profileForm.getRawValue())
+  }
+
+  public onReset(): void {
+    this.submitted = false;
+    this.profileForm.reset()
+  }
+
+  public checkValidation(controlName: string): boolean {
+    return this.profileForm.controls[controlName].invalid && 
+    (this.profileForm.controls[controlName].touched || this.profileForm.controls[controlName].dirty)  
   }
 
 

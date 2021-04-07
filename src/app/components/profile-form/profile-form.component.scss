@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 42px;
+  border: none;
+  line-height: 40px;
+  border-bottom: solid 1px black;
+  &:focus {
+    outline: none;
+  }
+  &.invalid {
+    border-bottom: solid 1px red;
+  }
+}
+
+button {
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
