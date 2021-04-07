@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cloud-talk-zadanie"
+  },
+  "targets": {
+    "cloud-talk-zadanie": {
+      "hosting": {
+        "ct-zadanie": [
+          "cloud-talk-zadanie"
+        ]
+      }
+    }
+  }
+}
