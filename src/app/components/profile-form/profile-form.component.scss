@@ -1,6 +1,8 @@
 :host {
   display: block;
   text-align: center;
+  box-sizing: border-box;
+  border: solid 1px black;
 }
 
 input {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map, mergeMap, tap } from 'rxjs/operators';
+import { DataService } from 'src/app/core/services/data.service';
+import { RestService } from 'src/app/core/services/rest.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private restClient: RestService, private data: DataService) { }
 
   ngOnInit(): void {
+    this.restClient.getFoo('bar1')
+    .pipe(
+      tap(res => console.log('First result', res)),
+      mergeMap(character => this.restClient.getFoo('bar2')),
+      tap(res => console.log('Second result', res)),
+      mergeMap(character => this.restClient.getFoo('bar3')),
+      tap(res => console.log('Third result', res)),
+      )
+    .subscribe(() => console.log('Chain executed successfully. Good job :)'));
   }
 
 }

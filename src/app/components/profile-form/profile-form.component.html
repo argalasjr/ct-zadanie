@@ -1,10 +1,13 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" (ngReset)="onReset()">
-  <input [ngClass]="{'invalid': checkValidation('username') }" placeholder="Vase meno a priezvisko" type="text" formControlName="username" />
-  <input [ngClass]="{'invalid': checkValidation('email') }" placeholder="Vas email" type="email" formControlName="email" />
-  <input [ngClass]="{'invalid': checkValidation('phone') }" placeholder="Telefon" type="text" formControlName="phone" />
-  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
-  <button type="reset" [disabled]="!profileForm">Reset</button>
-  <div *ngIf="submitted">
-    success
-  </div>
-</form>
+<div [ngStyle]="{'backgroundColor': submitted ? color : 'white' }">
+  <h1>Profile Form</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <input [ngClass]="{'invalid': checkValidation('username') }" placeholder="Vase meno a priezvisko" type="text" formControlName="username" />
+    <input [ngClass]="{'invalid': checkValidation('email') }" placeholder="Vas email" type="email" formControlName="email" />
+    <input [ngClass]="{'invalid': checkValidation('phone') }" placeholder="Telefon" type="text" formControlName="phone" />
+    <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+    <div *ngIf="submitted">
+      success
+    </div>
+  </form>
+  <button (click)="resetForm()" [disabled]="!profileForm">Reset</button>
+</div>
