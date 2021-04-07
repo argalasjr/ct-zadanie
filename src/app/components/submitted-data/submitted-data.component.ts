@@ -16,12 +16,10 @@ export class SubmittedDataComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.submittedData.subscribe(
       (result) => {
-        console.log(result)
         this.submittedDataForm = result;
         this.cd.markForCheck();
       }
     )
-   // this.dataService.changeSubmittedData('test')
   }
 
 }

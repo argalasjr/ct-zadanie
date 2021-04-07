@@ -9,8 +9,6 @@ export class DataService {
   private readonly _submittedDataFormSource = new BehaviorSubject<any>(undefined);
   public submittedData = this._submittedDataFormSource.asObservable()
 
-
-  
   constructor() { }
   
   public changeSubmittedData(data: any): void {

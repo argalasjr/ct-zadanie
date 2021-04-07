@@ -19,12 +19,12 @@ export class RestInterceptor implements HttpInterceptor {
         'Content-Type': 'application/json'
       }
     });
-    return next.handle(request);
-      // .pipe(
-      //   catchError((error: HttpErrorResponse) => {
-      //     console.log('interceptor zachytil errorik',err)
-      //     return throwError(error);
-      //   })
-      // );
+    return next.handle(request)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          console.log('interceptor zachytil errorik',error)
+          return throwError(error);
+        })
+      );
   }
 }

@@ -4,7 +4,7 @@
     <input [ngClass]="{'invalid': checkValidation('username') }" placeholder="Vase meno a priezvisko" type="text" formControlName="username" />
     <input [ngClass]="{'invalid': checkValidation('email') }" placeholder="Vas email" type="email" formControlName="email" />
     <input [ngClass]="{'invalid': checkValidation('phone') }" placeholder="Telefon" type="text" formControlName="phone" />
-    <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+    <button type="submit" [disabled]="profileForm.invalid || submitBtnDisabled">Submit</button>
     <div *ngIf="submitted">
       success
     </div>

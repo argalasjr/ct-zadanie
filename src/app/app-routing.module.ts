@@ -12,17 +12,13 @@ const routes: Routes = [];
   imports: [
     MainModule,
     RouterModule.forRoot([    
-      // {
-      //   path: '',
-      //   redirectTo: '',
-      //   pathMatch: 'full'
-      // },
       {
         path: '',
         children: [
           {
             path: 'login',
             component: LoginComponent
+            //for lazy load
             //loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
           },
           {
@@ -30,10 +26,8 @@ const routes: Routes = [];
             component: MainComponent,
             data: {requiresLogin: true},
             canActivate: [AuthGuard]
-            //loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
           },
           {
-            //TODO: only if user is logged
             path: '**',
             redirectTo: '',
             component: MainComponent,
@@ -41,9 +35,7 @@ const routes: Routes = [];
             canActivate: [AuthGuard]
           },
         ]
-      },
-
-     
+      },     
     ])],
   exports: [RouterModule]
 })
